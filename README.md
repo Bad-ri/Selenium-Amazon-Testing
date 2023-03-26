@@ -1,2 +1,2 @@
-# Selenium-Open_Cart
+# Selenium-Opencart-Testing
 automate opencart website
