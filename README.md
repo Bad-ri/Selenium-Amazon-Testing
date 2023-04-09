@@ -1,31 +1,32 @@
-# Amazon E-commerce Automation Testing Project
-This is an automation testing project for the Amazon e-commerce website using Selenium WebDriver Java, TestNG, and Cucumber. The project aims to automate the testing of various scenarios on the Amazon website and ensure the website's functionality is not affected by any changes.
+## Don't forget to give a :star: to make the project popular.
 
-# Requirements
-1)Java 8 or higher.
-2)Selenium WebDriver.
-3)TestNG.
-4)Cucumber.
-5)EdgeDriver.
+## :question: What is this Repository about?
 
-# Setup
-Clone this repository to your local machine.
-Install the required dependencies using Maven.
-Download the latest version of EdgeDriver and place it in the project's root directory.
-Open the config.properties file and update the browser property to chrome.
-Running the Tests
+This project has the example code for an automation testing project for the Amazon e-commerce website using Selenium WebDriver Java, TestNG, and Cucumber. The project aims to automate the testing of various scenarios on the Amazon website and ensure the website's functionality is not affected by any changes.
 
-# Test Scenarios
-The following scenarios are automated as part of this project:
+## Scenario covered
+- Search for a product and verify the search results.
+- Add a product to the cart and verify the cart.
+- Remove a product from the cart and verify the cart.
+- Sign in to the website and verify the account information.
+- Sign out of the website and verify the sign out.
 
-Search for a product and verify the search results.
-Add a product to the cart and verify the cart.
-Remove a product from the cart and verify the cart.
-Sign in to the website and verify the account information.
-Sign out of the website and verify the sign out.
+# Running the project
+## Requirements
+- Java 8 or higher.
+- Selenium WebDriver.
+- TestNG.
+- ucumber.
+- EdgeDriver.
+## Setup
+- Clone this repository to your local machine.
+- nstall the required dependencies using Maven.
+- Download the latest version of EdgeDriver and place it in the project's root directory.
+- Open the config.properties file and update the browser property to chrome.
+- Running the Tests
 
-# Reporting
+## Reporting
 The project generates a test report in HTML format. The report can be found in the target/surefire-reports directory after running the tests. Open the index.html file in a web browser to view the report.
 
-Contributing
+## Contributing
 Contributions are welcome! To contribute, please fork this repository, make changes, and submit a pull request.
