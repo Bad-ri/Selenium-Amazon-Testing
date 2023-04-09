@@ -1,0 +1,9 @@
+<suite name="OpenCart" verbose="1">
+    <test name="Regression">
+        <classes>
+            <class name="TestCases.Registration">
+               // <include name=""></include>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -6,26 +6,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
 import java.time.Duration;
 
-public class HomePage {
+public class HomePage{
     WebDriver driver;
     WebDriverWait wait;
-    By my_account = By.cssSelector("li>div[class=\"dropdown\"]");
-    By register = By.linkText("Register");
+    By my_account = By.xpath("//a[@id=\"nav-link-accountList\"]");
+    By register = By.xpath("//a[@id=\"createAccountSubmit\"]");
 
     public HomePage(WebDriver driver){
         this.driver = driver ;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
-    public void OpenMyAccount() {
+    public WebElement OpenMyAccount() {
         WebElement myAccount = driver.findElement(my_account);
         wait.until(ExpectedConditions.elementToBeClickable(myAccount));
-        myAccount.click();
+        return myAccount;
     }
     public void OpenRegistration(){
         WebElement registration = driver.findElement(register);
         wait.until(ExpectedConditions.elementToBeClickable(registration));
         registration.click();
     }
+
 }

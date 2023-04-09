@@ -2,39 +2,50 @@ package TestCases;
 
 import Base.edgeBrowser;
 import Functions.ActionClass;
-import Functions.JavaScriptClass;
+import Functions.ExcelData;
 import Pages.HomePage;
 import Pages.RegistrationPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.io.IOException;
 
-public class Registration extends edgeBrowser {
+public class Registration extends edgeBrowser{
     @Test
-    public void ValidRegistration() throws InterruptedException {
+    public void ValidRegistration() throws IOException, InterruptedException {
         HomePage home = new HomePage(driver);
         RegistrationPage register = new RegistrationPage(driver);
-        JavaScriptClass js = new JavaScriptClass(driver);
-        home.OpenMyAccount();
+        ExcelData data = new ExcelData();
+        ActionClass action = new ActionClass(driver);
+        action.DoubleClick(home.OpenMyAccount());
         home.OpenRegistration();
-        js.ScrollByPixels(250);
-        //driver.get("https://demo.opencart.com/index.php?route=account/register&language=en-gb");
-//        register.EnterFirstName("");
-//        register.EnterLastName("");
-//        register.EnterEmail("");
-//        register.EnterPassword("");
-        Thread.sleep(10000);
-        register.EnterFirstName("mohamed");
-        register.EnterLastName("elbadri");
-        register.EnterEmail("blue@blue.com");
-        register.EnterPassword("1234");
-        register.AcceptPolicy();
-        Thread.sleep(10000);
-
-        //register.Submit();
-       // driver.navigate().to("https://demo.opencart.com/index.php?route=product/category&language=en-gb&path=24");
-        //Thread.sleep(3000);
-        //String result = register.GetPopNotification();
-        //System.out.println("--------");
-        //System.out.println(result);
-       // System.out.println("--------");
+        data.ReadValidData();
+        register.EnterName(data.GetValidName());
+        register.EnterEmail(data.GetValidEmail());
+        register.EnterPassword(data.GetValidPassword());
+        register.Submit();
+        this.AuthenticationPassCheck(register.GetAuthenticationNotification());
+    }
+    @Test
+    public void InValidRegistration() throws IOException, InterruptedException {
+        HomePage home = new HomePage(driver);
+        RegistrationPage register = new RegistrationPage(driver);
+        ExcelData data = new ExcelData();
+        ActionClass action = new ActionClass(driver);
+        action.DoubleClick(home.OpenMyAccount());
+        home.OpenRegistration();
+        data.ReadValidData();
+        register.EnterName(data.GetValidName());
+        register.EnterEmail(data.GetInValidEmail());
+        register.EnterPassword(data.GetValidPassword());
+        register.Submit();
+        this.AuthenticationFailCheck(register.GetErrorNotification());
+    }
+    public void AuthenticationPassCheck(String notification){
+        String Expected = "Authentication required";
+        Assert.assertTrue(notification.contains(Expected));
+    }
+    public void AuthenticationFailCheck(String notification){
+        String Expected = "Amazon Registration";
+        Assert.assertTrue(notification.contains(Expected));
     }
 }

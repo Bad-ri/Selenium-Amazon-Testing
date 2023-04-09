@@ -11,26 +11,21 @@ import java.time.Duration;
 public class RegistrationPage {
     WebDriver driver ;
     WebDriverWait wait ;
-    By first_name = By.xpath("//div[@class=\"col-sm-10\"]//input[@id=\"input-firstname\"]");
-    By last_name = By.xpath("//div[@class=\"col-sm-10\"]//input[@id=\"input-lastname\"]");
-    By email = By.xpath("//div[@class=\"col-sm-10\"]//input[@id=\"input-email\"]");
-    By password = By.xpath("//div[@class=\"col-sm-10\"]//input[@id=\"input-password\"]");
-    By check_bok = By.cssSelector("input[type=\"checkbox\"]");
-    By submit = By.cssSelector("button[type=\"submit\"]");
-    By error_popup = By.xpath("//div[@id=\"alert\"]");
-    By successful_popup = By.xpath("//div[@id=\"content\"]//h1");
+    By name = By.xpath("//input[@id=\"ap_customer_name\"]");
+    By email = By.xpath("//input[@id=\"ap_email\"]");
+    By password = By.xpath("//input[@id=\"ap_password\"]");
+    By check_password = By.xpath("//input[@id=\"ap_password_check\"]");
+    By submit = By.xpath("//input[@id=\"continue\"]");
+    By wrong_email_alert = By.xpath("//*[@id=\"auth-email-missing-alert\"]/div/div");
+    By successful_alert = By.xpath("//span[@class=\"a-size-large\"]");
     public RegistrationPage(WebDriver driver){
         this.driver = driver ;
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
-    public void EnterFirstName(String input){
-        WebElement FirstName = driver.findElement(first_name);
+    public void EnterName(String input){
+        WebElement FirstName = driver.findElement(name);
         wait.until(ExpectedConditions.elementToBeClickable(FirstName));
         FirstName.sendKeys(input);
-    }
-    public void EnterLastName(String input){
-        WebElement LastName = driver.findElement(last_name);
-        LastName.sendKeys(input);
     }
     public void EnterEmail(String input){
         WebElement Email = driver.findElement(email);
@@ -39,19 +34,23 @@ public class RegistrationPage {
     public void EnterPassword(String input){
         WebElement Password = driver.findElement(password);
         Password.sendKeys(input);
-    }
-    public void AcceptPolicy(){
-        WebElement CheckBox = driver.findElement(check_bok);
-        CheckBox.click();
+        WebElement PasswordCheck = driver.findElement(check_password);
+        PasswordCheck.sendKeys(input);
     }
     public void Submit(){
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public String GetPopNotification(){
-        WebElement popupNotification = driver.findElement(successful_popup);
-        wait.until(ExpectedConditions.visibilityOf(popupNotification));
-        String notification= popupNotification.getText();
+    public String GetAuthenticationNotification() throws InterruptedException {
+        Thread.sleep(3000);
+//        WebElement popupNotification = driver.findElement(successful_alert);
+//        wait.until(ExpectedConditions.visibilityOf(popupNotification));
+        String notification= driver.getTitle();
+        return notification;
+    }
+    public String GetErrorNotification(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(wrong_email_alert));
+        String notification= driver.getTitle();
         return notification;
     }
 }

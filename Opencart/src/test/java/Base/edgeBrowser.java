@@ -11,7 +11,7 @@ public class edgeBrowser {
         String edgePath = System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\msedgedriver.exe";
         driver = new EdgeDriver();
         System.setProperty("webdriver.edge.driver",edgePath);
-        driver.get("https://demo.opencart.com/index.php?route=common/home&language=en-gb");
+        driver.get("https://www.amazon.com/");
         driver.manage().window().maximize();
     }
     @AfterTest
