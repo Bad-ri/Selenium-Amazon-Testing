@@ -13,17 +13,21 @@ This project has the example code for an automation testing project for the Amaz
 
 # Running the project
 ## Requirements
+```bash
 - Java 8 or higher.
 - Selenium WebDriver.
 - TestNG.
 - ucumber.
 - EdgeDriver.
+```
 ## Setup
-- Clone this repository to your local machine.
-- nstall the required dependencies using Maven.
-- Download the latest version of EdgeDriver and place it in the project's root directory.
-- Open the config.properties file and update the browser property to chrome.
-- Running the Tests
+```bash
+1 - Clone this repository to your local machine.
+2 - nstall the required dependencies using Maven.
+3 - Download the latest version of EdgeDriver and place it in the project's root directory.
+4 - Open the config.properties file and update the browser property to chrome.
+5 - Running the Tests
+```
 
 ## Reporting
 The project generates a test report in HTML format. The report can be found in the target/surefire-reports directory after running the tests. Open the index.html file in a web browser to view the report.
