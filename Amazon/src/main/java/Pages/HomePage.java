@@ -14,6 +14,8 @@ public class HomePage{
     WebDriverWait wait;
     By my_account = By.xpath("//a[@id=\"nav-link-accountList\"]");
     By register = By.xpath("//a[@id=\"createAccountSubmit\"]");
+    By search = By.xpath("//input[@id=\"twotabsearchtextbox\"]");
+    By search_result = By.xpath("//span[@class=\"a-color-state a-text-bold\"]");
 
     public HomePage(WebDriver driver){
         this.driver = driver ;
@@ -29,5 +31,14 @@ public class HomePage{
         wait.until(ExpectedConditions.elementToBeClickable(registration));
         registration.click();
     }
-
+    public void SearchFor(String input){
+        wait.until(ExpectedConditions.presenceOfElementLocated(search));
+        WebElement Search = driver.findElement(search);
+        Search.sendKeys(input);
+        Search.submit();
+    }
+    public String GetSearchResult(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(search_result));
+        return driver.findElement(search_result).getText();
+    }
 }

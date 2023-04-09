@@ -13,12 +13,12 @@ public class LoginPage {
     WebDriverWait wait;
     public LoginPage(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver,Duration.ofSeconds(3000));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(3));
     }
-    By email = By.xpath("//input[@id=\"input-email\"]");
+    By email = By.xpath("//input[@id=\"ap_email\"]");
     By password = By.xpath("//input[@id=\"input-password\"]");
-    By submit = By.xpath("//*[@id=\"form-login\"]/button");
-    By alert = By.xpath("//*[@id=\"alert\"]/div");
+    By submit = By.xpath("//input[@id=\"continue\"]");
+    By alert = By.xpath("");
     public void EnterEmail(String input){
         WebElement Email = driver.findElement(email);
         wait.until(ExpectedConditions.elementToBeClickable(Email));

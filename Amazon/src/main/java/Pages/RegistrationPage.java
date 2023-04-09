@@ -43,8 +43,6 @@ public class RegistrationPage {
     }
     public String GetAuthenticationNotification() throws InterruptedException {
         Thread.sleep(3000);
-//        WebElement popupNotification = driver.findElement(successful_alert);
-//        wait.until(ExpectedConditions.visibilityOf(popupNotification));
         String notification= driver.getTitle();
         return notification;
     }
