@@ -1,2 +1,2 @@
-# Selenium-Opencart-Testing
-automate opencart website
+# Selenium-Amazon-Testing
+automate Amazon website
