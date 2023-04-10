@@ -18,29 +18,30 @@ public class CategoryPage {
     }
     By item = By.xpath("//img[@alt=\"PRETTYGARDEN Women's 2023 Floral Summer Dress Wrap V Neck Short Sleeve Belted Ruffle Hem A-Line Bohemian Maxi Dresses\"]");
     By select_size = By.xpath("//input[@aria-labelledby=\"size_name_1-announce\"]");
-    By cart_message = By.xpath("\"//*[@id=\\\"NATC_SMART_WAGON_CONF_MSG_SUCCESS\\\"]/span\"");
+    By cart_message = By.xpath("//*[@id=\"NATC_SMART_WAGON_CONF_MSG_SUCCESS\"]/span");
     By add_to_cart = By.xpath("//input[@id=\"add-to-cart-button\"]");
-    public void ChooseProduct() throws InterruptedException {
+    public void ChooseProduct() {
         WebElement Item = driver.findElement(item);
         wait.until(ExpectedConditions.presenceOfElementLocated(item));
         Item.click();
     }
-    public void ChooseSize () throws InterruptedException {
+    public void ChooseSize () {
         WebElement SizeSelect = driver.findElement(select_size);
         wait.until(ExpectedConditions.presenceOfElementLocated(select_size));
         SizeSelect.click();
     }
     public void ClickAddToCart() throws InterruptedException {
+        Thread.sleep(2000);
         WebElement AddToCart = driver.findElement(add_to_cart);
-        wait.until(ExpectedConditions.elementToBeClickable(AddToCart));
+        //wait.until(ExpectedConditions.elementToBeClickable(AddToCart));
         AddToCart.click();
     }
     public void SwitchTab() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(3000);
         ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
     }
-    public String GetCartInformation() throws InterruptedException {
+    public String GetCartInformation() {
         wait.until(ExpectedConditions.presenceOfElementLocated(cart_message));
         String Actual = driver.findElement(cart_message).getText();
         return Actual;

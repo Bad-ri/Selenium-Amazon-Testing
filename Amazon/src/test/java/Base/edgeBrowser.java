@@ -2,11 +2,11 @@ package Base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
+
 public class edgeBrowser {
     public WebDriver driver;
-    @BeforeTest
+    @BeforeClass
     public void openBrowser(){
         String edgePath = System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\msedgedriver.exe";
         driver = new EdgeDriver();
@@ -14,7 +14,7 @@ public class edgeBrowser {
         driver.get("https://www.amazon.com/");
         driver.manage().window().maximize();
     }
-    @AfterTest
+    @AfterClass
     public void closeBrowser(){
         driver.quit();
     }

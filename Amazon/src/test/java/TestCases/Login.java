@@ -12,11 +12,12 @@ import java.io.IOException;
 
 public class Login extends edgeBrowser {
     @Test
-    public void InValidLogin() throws IOException {
+    public void InValidLogin() throws IOException, InterruptedException {
         HomePage home = new HomePage(driver);
         LoginPage login = new LoginPage(driver);
         ActionClass action = new ActionClass(driver);
         ExcelData data = new ExcelData();
+        home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());
         data.ReadValidData();
         login.EnterEmail(data.GetInValidEmail());

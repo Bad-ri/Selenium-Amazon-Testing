@@ -23,7 +23,11 @@ public class HomePage{
         this.driver = driver ;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
-    public WebElement OpenMyAccount() {
+    public void OpenHomePage() throws InterruptedException {
+        driver.get("https://www.amazon.com/");
+        Thread.sleep(3000);
+    }
+    public WebElement OpenMyAccount() throws InterruptedException {
         WebElement myAccount = driver.findElement(my_account);
         wait.until(ExpectedConditions.elementToBeClickable(myAccount));
         return myAccount;
@@ -47,8 +51,5 @@ public class HomePage{
         WebElement DressCategory = driver.findElement(dress_category);
         DressCategory.click();
     }
-    public void OpenCart(){
-        WebElement Cart = driver.findElement(cart);
-        Cart.click();
-    }
+
 }

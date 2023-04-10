@@ -16,6 +16,7 @@ public class Registration extends edgeBrowser{
         RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();
         ActionClass action = new ActionClass(driver);
+        home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());
         home.OpenRegistration();
         data.ReadValidData();
@@ -31,6 +32,7 @@ public class Registration extends edgeBrowser{
         RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();
         ActionClass action = new ActionClass(driver);
+        home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());
         home.OpenRegistration();
         data.ReadValidData();

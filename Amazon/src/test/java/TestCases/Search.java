@@ -8,9 +8,10 @@ import org.testng.annotations.Test;
 
 public class Search extends edgeBrowser {
     @Test
-    public void ValidSearch(){
+    public void ValidSearch() throws InterruptedException {
         HomePage home = new HomePage(driver);
         ExcelData data = new ExcelData();
+        home.OpenHomePage();
         home.SearchFor(data.GetValidSearch());
         this.NotificationCheck(home.GetSearchResult());
     }

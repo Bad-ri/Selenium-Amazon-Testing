@@ -5,27 +5,28 @@ import Functions.ActionClass;
 import Functions.JavaScriptClass;
 import Pages.CategoryPage;
 import Pages.HomePage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddToCart extends edgeBrowser {
+public class Cart extends edgeBrowser {
     @Test
     public void ValidAddToCart() throws InterruptedException {
         HomePage home = new HomePage(driver);
         CategoryPage category = new CategoryPage(driver);
         JavaScriptClass js = new JavaScriptClass(driver);
         ActionClass action = new ActionClass(driver);
+        home.OpenHomePage();
         home.OpenCategory();
         category.ChooseProduct();
         js.ScrollByPixels(500);
         category.ChooseSize();
         action.scrollUp();
         category.ClickAddToCart();
-        //category.ClickAddToCart();
         category.SwitchTab();
         this.CheckCart(category.GetCartInformation());
     }
     public void CheckCart(String input){
-        String Expected = "Your Amazon Cart is empty.";
-        System.out.print(input);
+        String Expected = "Added to Cart";
+        Assert.assertTrue(input.contains(Expected));
     }
 }
