@@ -17,7 +17,7 @@ This project has the example code for an automation testing project for the Amaz
 - Java 8 or higher.
 - Selenium WebDriver.
 - TestNG.
-- ucumber.
+- cucumber.
 - EdgeDriver.
 ```
 ## ⚙️ Setup
@@ -25,7 +25,7 @@ This project has the example code for an automation testing project for the Amaz
 1 - Clone this repository to your local machine.
 2 - nstall the required dependencies using Maven.
 3 - Download the latest version of EdgeDriver and place it in the project's root directory.
-4 - Open the config.properties file and update the browser property to chrome.
+4 - Open the config.properties file and update the browser property to edge.
 5 - Running the Tests
 ```
 
