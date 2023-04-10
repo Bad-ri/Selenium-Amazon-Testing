@@ -32,5 +32,5 @@ This project has the example code for an automation testing project for the Amaz
 ## 📝 Reporting
 The project generates a test report in HTML format. The report can be found in the target/surefire-reports directory after running the tests. Open the index.html file in a web browser to view the report.
 
-## Contributing
+## 🛠️ Contributing
 Contributions are welcome! To contribute, please fork this repository, make changes, and submit a pull request.
