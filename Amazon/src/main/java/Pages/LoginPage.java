@@ -16,17 +16,12 @@ public class LoginPage {
         wait = new WebDriverWait(driver,Duration.ofSeconds(3));
     }
     By email = By.xpath("//input[@id=\"ap_email\"]");
-    By password = By.xpath("//input[@id=\"input-password\"]");
     By submit = By.xpath("//input[@id=\"continue\"]");
-    By alert = By.xpath("");
+    By alert = By.xpath("//h4[@class=\"a-alert-heading\"]");
     public void EnterEmail(String input){
         WebElement Email = driver.findElement(email);
         wait.until(ExpectedConditions.elementToBeClickable(Email));
         Email.sendKeys(input);
-    }
-    public void EnterPassword(String input){
-        WebElement Password = driver.findElement(password);
-        Password.sendKeys(input);
     }
     public void ClickSubmit(){
         WebElement Submit = driver.findElement(submit);
@@ -34,7 +29,7 @@ public class LoginPage {
     }
     public String GetNotification(){
         WebElement Alert = driver.findElement(alert);
-        wait.until(ExpectedConditions.visibilityOf(Alert));
+        wait.until(ExpectedConditions.presenceOfElementLocated(alert));
         String notification = Alert.getText();
         return notification;
     }

@@ -27,4 +27,8 @@ public class ExcelData {
     public String GetValidPassword(){
         return String.valueOf(sh.getRow(2).getCell(1));
     }
+    public String GetValidSearch(){
+        return String.valueOf(sh.getRow(3).getCell(1));
+    }
+
 }
