@@ -4,7 +4,7 @@
 
 This project has the example code for an automation testing project for the Amazon e-commerce website using Selenium WebDriver Java, TestNG, Data driven framework, and Cucumber. The project aims to automate the testing of various scenarios on the Amazon website and ensure the website's functionality is not affected by any changes.
 
-## Scenario covered
+## ✨ Scenario covered
 - Search for a product and verify the search results.
 - Add a product to the cart and verify the cart.
 - Remove a product from the cart and verify the cart.
@@ -12,7 +12,7 @@ This project has the example code for an automation testing project for the Amaz
 - Sign out of the website and verify the sign out.
 
 # Running the project
-## Requirements
+## 💻 Requirements
 ```bash
 - Java 8 or higher.
 - Selenium WebDriver.
@@ -20,7 +20,7 @@ This project has the example code for an automation testing project for the Amaz
 - ucumber.
 - EdgeDriver.
 ```
-## Setup
+## ⚙️ Setup
 ```bash
 1 - Clone this repository to your local machine.
 2 - nstall the required dependencies using Maven.
@@ -29,7 +29,7 @@ This project has the example code for an automation testing project for the Amaz
 5 - Running the Tests
 ```
 
-## Reporting
+## 📝 Reporting
 The project generates a test report in HTML format. The report can be found in the target/surefire-reports directory after running the tests. Open the index.html file in a web browser to view the report.
 
 ## Contributing
