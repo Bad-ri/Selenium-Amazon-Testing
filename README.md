@@ -2,7 +2,7 @@
 
 ## :question: What is this Repository about?
 
-This project has the example code for an automation testing project for the Amazon e-commerce website using Selenium WebDriver Java, TestNG, and Cucumber. The project aims to automate the testing of various scenarios on the Amazon website and ensure the website's functionality is not affected by any changes.
+This project has the example code for an automation testing project for the Amazon e-commerce website using Selenium WebDriver Java, TestNG, Data driven framework, and Cucumber. The project aims to automate the testing of various scenarios on the Amazon website and ensure the website's functionality is not affected by any changes.
 
 ## Scenario covered
 - Search for a product and verify the search results.
