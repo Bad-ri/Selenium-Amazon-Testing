@@ -1,8 +1,8 @@
 <suite thread-count="5" verbose="1" name="Amazon Suite">
     <test name="Regression">
         <classes>
-            <class name="TestCases.Login"></class>
             <class name="TestCases.Search"></class>
+            <class name="TestCases.Login"></class>
             <class name="TestCases.Registration"></class>
             <class name="TestCases.Cart"></class>
         </classes>
