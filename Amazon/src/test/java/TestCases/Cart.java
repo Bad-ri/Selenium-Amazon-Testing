@@ -13,8 +13,8 @@ public class Cart extends edgeBrowser {
     public void ValidAddToCart() throws InterruptedException {
         HomePage home = new HomePage();
         CategoryPage category = new CategoryPage();
-        JavaScriptClass js = new JavaScriptClass(driver);
-        ActionClass action = new ActionClass(driver);
+        JavaScriptClass js = new JavaScriptClass();
+        ActionClass action = new ActionClass();
         home.OpenHomePage();
         home.OpenCategory();
         category.ChooseProduct();

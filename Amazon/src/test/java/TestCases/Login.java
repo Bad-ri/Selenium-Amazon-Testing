@@ -15,7 +15,7 @@ public class Login extends edgeBrowser {
     public void InValidLogin() throws IOException, InterruptedException {
         HomePage home = new HomePage();
         LoginPage login = new LoginPage();
-        ActionClass action = new ActionClass(driver);
+        ActionClass action = new ActionClass();
         ExcelData data = new ExcelData();
         home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());

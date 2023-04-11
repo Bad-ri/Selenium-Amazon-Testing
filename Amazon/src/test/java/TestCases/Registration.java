@@ -15,7 +15,7 @@ public class Registration extends edgeBrowser{
         HomePage home = new HomePage();
         RegistrationPage register = new RegistrationPage();
         ExcelData data = new ExcelData();
-        ActionClass action = new ActionClass(driver);
+        ActionClass action = new ActionClass();
         home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());
         home.OpenRegistration();
