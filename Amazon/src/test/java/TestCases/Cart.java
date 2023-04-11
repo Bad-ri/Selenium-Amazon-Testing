@@ -23,10 +23,7 @@ public class Cart extends edgeBrowser {
         action.scrollUp();
         category.ClickAddToCart();
         category.SwitchTab();
-        this.CheckCart(category.GetCartInformation());
+        category.CheckCart();
     }
-    public void CheckCart(String input){
-        String Expected = "Added to Cart";
-        Assert.assertTrue(input.contains(Expected));
-    }
+
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import javax.swing.*;
 import java.time.Duration;
@@ -39,9 +40,11 @@ public class HomePage extends edgeBrowser {
         Search.sendKeys(input);
         Search.submit();
     }
-    public String GetSearchResult(){
+    public void NotificationCheck(){
         wait.until(ExpectedConditions.presenceOfElementLocated(search_result));
-        return driver.findElement(search_result).getText();
+        String Actual = driver.findElement(search_result).getText();
+        String Expected = "iphone 14 pro max";
+        Assert.assertTrue(Actual.contains(Expected));
     }
     public void OpenCategory(){
         WebElement DressCategory = driver.findElement(dress_category);

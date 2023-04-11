@@ -13,10 +13,6 @@ public class Search extends edgeBrowser {
         ExcelData data = new ExcelData();
         home.OpenHomePage();
         home.SearchFor(data.GetValidSearch());
-        this.NotificationCheck(home.GetSearchResult());
-    }
-    public void NotificationCheck(String input){
-        String Expected = "iphone 14 pro max";
-        Assert.assertTrue(input.contains(Expected));
+        home.NotificationCheck();
     }
 }

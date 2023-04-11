@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -23,10 +24,11 @@ public class LoginPage extends edgeBrowser {
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public String GetNotification(){
+    public void CheckNotification(){
         WebElement Alert = driver.findElement(alert);
         wait.until(ExpectedConditions.presenceOfElementLocated(alert));
-        String notification = Alert.getText();
-        return notification;
+        String Actual = Alert.getText();
+        String Expected = "There was a problem";
+        Assert.assertTrue(Actual.contains(Expected));
     }
 }

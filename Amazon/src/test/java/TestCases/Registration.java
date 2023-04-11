@@ -24,7 +24,7 @@ public class Registration extends edgeBrowser{
         register.EnterEmail(data.GetValidEmail());
         register.EnterPassword(data.GetValidPassword());
         register.Submit();
-        this.AuthenticationPassCheck(register.GetAuthenticationNotification());
+        register.AuthenticationPassCheck();
     }
     @Test
     public void InValidRegistration() throws IOException, InterruptedException {
@@ -40,14 +40,7 @@ public class Registration extends edgeBrowser{
         register.EnterEmail(data.GetInValidEmail());
         register.EnterPassword(data.GetValidPassword());
         register.Submit();
-        this.AuthenticationFailCheck(register.GetErrorNotification());
+        register.AuthenticationFailCheck();
     }
-    public void AuthenticationPassCheck(String notification){
-        String Expected = "Authentication required";
-        Assert.assertTrue(notification.contains(Expected));
-    }
-    public void AuthenticationFailCheck(String notification){
-        String Expected = "Amazon Registration";
-        Assert.assertTrue(notification.contains(Expected));
-    }
+
 }

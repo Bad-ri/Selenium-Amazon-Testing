@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -37,14 +38,16 @@ public class RegistrationPage extends edgeBrowser {
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public String GetAuthenticationNotification() throws InterruptedException {
+    public void AuthenticationPassCheck() throws InterruptedException {
         Thread.sleep(3000);
-        String notification= driver.getTitle();
-        return notification;
+        String Actual= driver.getTitle();
+        String Expected = "Authentication required";
+        Assert.assertTrue(Actual.contains(Expected));
     }
-    public String GetErrorNotification(){
+    public void AuthenticationFailCheck(){
         wait.until(ExpectedConditions.presenceOfElementLocated(wrong_email_alert));
-        String notification= driver.getTitle();
-        return notification;
+        String Actual= driver.getTitle();
+        String Expected = "Amazon Registration";
+        Assert.assertTrue(Actual.contains(Expected));
     }
 }
