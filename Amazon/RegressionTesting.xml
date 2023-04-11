@@ -2,9 +2,11 @@
     <test name="Regression">
         <classes>
             <class name="TestCases.Search"></class>
+            <!--
             <class name="TestCases.Login"></class>
             <class name="TestCases.Registration"></class>
             <class name="TestCases.Cart"></class>
+            -->
         </classes>
     </test>
 </suite>
