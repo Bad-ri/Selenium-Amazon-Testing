@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 public class Cart extends edgeBrowser {
     @Test
     public void ValidAddToCart() throws InterruptedException {
-        HomePage home = new HomePage(driver);
-        CategoryPage category = new CategoryPage(driver);
+        HomePage home = new HomePage();
+        CategoryPage category = new CategoryPage();
         JavaScriptClass js = new JavaScriptClass(driver);
         ActionClass action = new ActionClass(driver);
         home.OpenHomePage();

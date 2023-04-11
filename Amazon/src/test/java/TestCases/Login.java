@@ -13,8 +13,8 @@ import java.io.IOException;
 public class Login extends edgeBrowser {
     @Test
     public void InValidLogin() throws IOException, InterruptedException {
-        HomePage home = new HomePage(driver);
-        LoginPage login = new LoginPage(driver);
+        HomePage home = new HomePage();
+        LoginPage login = new LoginPage();
         ActionClass action = new ActionClass(driver);
         ExcelData data = new ExcelData();
         home.OpenHomePage();
