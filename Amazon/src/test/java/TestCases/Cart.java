@@ -11,10 +11,10 @@ import org.testng.annotations.Test;
 public class Cart extends edgeBrowser {
     @Test
     public void ValidAddToCart() throws InterruptedException {
-        HomePage home = new HomePage();
-        CategoryPage category = new CategoryPage();
-        JavaScriptClass js = new JavaScriptClass();
-        ActionClass action = new ActionClass();
+        HomePage home = new HomePage(driver);
+        CategoryPage category = new CategoryPage(driver);
+        JavaScriptClass js = new JavaScriptClass(driver);
+        ActionClass action = new ActionClass(driver);
         home.OpenHomePage();
         home.OpenCategory();
         category.ChooseProduct();
@@ -23,7 +23,10 @@ public class Cart extends edgeBrowser {
         action.scrollUp();
         category.ClickAddToCart();
         category.SwitchTab();
-        category.CheckCart();
+        this.CheckCart(category.GetCartInformation());
     }
-
+    public void CheckCart(String input){
+        String Expected = "Added to Cart";
+        Assert.assertTrue(input.contains(Expected));
+    }
 }

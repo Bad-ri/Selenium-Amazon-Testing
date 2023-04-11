@@ -9,10 +9,14 @@ import org.testng.annotations.Test;
 public class Search extends edgeBrowser {
     @Test
     public void ValidSearch() throws InterruptedException {
-        HomePage home = new HomePage();
+        HomePage home = new HomePage(driver);
         ExcelData data = new ExcelData();
         home.OpenHomePage();
-        home.SearchFor(data.GetValidSearch());
-        home.NotificationCheck();
+        home.SearchFor("iphone 14 pro max");
+        this.NotificationCheck(home.GetSearchResult());
+    }
+    public void NotificationCheck(String input){
+        String Expected = "iphone 14 pro max";
+        Assert.assertTrue(input.contains(Expected));
     }
 }

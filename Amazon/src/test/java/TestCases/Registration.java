@@ -12,10 +12,10 @@ import java.io.IOException;
 public class Registration extends edgeBrowser{
     @Test
     public void ValidRegistration() throws IOException, InterruptedException {
-        HomePage home = new HomePage();
-        RegistrationPage register = new RegistrationPage();
+        HomePage home = new HomePage(driver);
+        RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();
-        ActionClass action = new ActionClass();
+        ActionClass action = new ActionClass(driver);
         home.OpenHomePage();
         action.DoubleClick(home.OpenMyAccount());
         home.OpenRegistration();
@@ -24,12 +24,12 @@ public class Registration extends edgeBrowser{
         register.EnterEmail(data.GetValidEmail());
         register.EnterPassword(data.GetValidPassword());
         register.Submit();
-        register.AuthenticationPassCheck();
+        this.AuthenticationPassCheck(register.GetAuthenticationNotification());
     }
     @Test
     public void InValidRegistration() throws IOException, InterruptedException {
-        HomePage home = new HomePage();
-        RegistrationPage register = new RegistrationPage();
+        HomePage home = new HomePage(driver);
+        RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();
         ActionClass action = new ActionClass(driver);
         home.OpenHomePage();
@@ -40,7 +40,14 @@ public class Registration extends edgeBrowser{
         register.EnterEmail(data.GetInValidEmail());
         register.EnterPassword(data.GetValidPassword());
         register.Submit();
-        register.AuthenticationFailCheck();
+        this.AuthenticationFailCheck(register.GetErrorNotification());
     }
-
+    public void AuthenticationPassCheck(String notification){
+        String Expected = "Authentication required";
+        Assert.assertTrue(notification.contains(Expected));
+    }
+    public void AuthenticationFailCheck(String notification){
+        String Expected = "Amazon Registration";
+        Assert.assertTrue(notification.contains(Expected));
+    }
 }

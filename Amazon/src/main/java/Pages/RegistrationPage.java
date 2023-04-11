@@ -1,17 +1,16 @@
 package Pages;
 
-import Base.edgeBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 
-public class RegistrationPage extends edgeBrowser {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+public class RegistrationPage {
+    WebDriver driver ;
+    WebDriverWait wait ;
     By name = By.xpath("//input[@id=\"ap_customer_name\"]");
     By email = By.xpath("//input[@id=\"ap_email\"]");
     By password = By.xpath("//input[@id=\"ap_password\"]");
@@ -19,6 +18,10 @@ public class RegistrationPage extends edgeBrowser {
     By submit = By.xpath("//input[@id=\"continue\"]");
     By wrong_email_alert = By.xpath("//*[@id=\"auth-email-missing-alert\"]/div/div");
     By successful_alert = By.xpath("//span[@class=\"a-size-large\"]");
+    public RegistrationPage(WebDriver driver){
+        this.driver = driver ;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+    }
     public void EnterName(String input){
         WebElement FirstName = driver.findElement(name);
         wait.until(ExpectedConditions.elementToBeClickable(FirstName));
@@ -38,16 +41,14 @@ public class RegistrationPage extends edgeBrowser {
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public void AuthenticationPassCheck() throws InterruptedException {
+    public String GetAuthenticationNotification() throws InterruptedException {
         Thread.sleep(3000);
-        String Actual= driver.getTitle();
-        String Expected = "Authentication required";
-        Assert.assertTrue(Actual.contains(Expected));
+        String notification= driver.getTitle();
+        return notification;
     }
-    public void AuthenticationFailCheck(){
+    public String GetErrorNotification(){
         wait.until(ExpectedConditions.presenceOfElementLocated(wrong_email_alert));
-        String Actual= driver.getTitle();
-        String Expected = "Amazon Registration";
-        Assert.assertTrue(Actual.contains(Expected));
+        String notification= driver.getTitle();
+        return notification;
     }
 }

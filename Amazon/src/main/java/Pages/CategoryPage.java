@@ -1,18 +1,21 @@
 package Pages;
 
-import Base.edgeBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
 
-public class CategoryPage extends edgeBrowser {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));;
+public class CategoryPage {
+    WebDriver driver;
+    WebDriverWait wait;
+    public CategoryPage(WebDriver driver){
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+    }
     By item = By.xpath("//img[@alt=\"PRETTYGARDEN Women's 2023 Floral Summer Dress Wrap V Neck Short Sleeve Belted Ruffle Hem A-Line Bohemian Maxi Dresses\"]");
     By select_size = By.xpath("//input[@aria-labelledby=\"size_name_1-announce\"]");
     By cart_message = By.xpath("//*[@id=\"NATC_SMART_WAGON_CONF_MSG_SUCCESS\"]/span");
@@ -38,10 +41,9 @@ public class CategoryPage extends edgeBrowser {
         ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
     }
-    public void CheckCart() {
+    public String GetCartInformation() {
         wait.until(ExpectedConditions.presenceOfElementLocated(cart_message));
         String Actual = driver.findElement(cart_message).getText();
-        String Expected = "Added to Cart";
-        Assert.assertTrue(Actual.contains(Expected));
+        return Actual;
     }
 }

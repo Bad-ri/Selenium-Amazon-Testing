@@ -1,18 +1,17 @@
 package Pages;
 
-import Base.edgeBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import javax.swing.*;
 import java.time.Duration;
 
-public class HomePage extends edgeBrowser {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));;
+public class HomePage{
+    WebDriver driver;
+    WebDriverWait wait;
     By my_account = By.xpath("//a[@id=\"nav-link-accountList\"]");
     By register = By.xpath("//a[@id=\"createAccountSubmit\"]");
     By search = By.xpath("//input[@id=\"twotabsearchtextbox\"]");
@@ -20,6 +19,10 @@ public class HomePage extends edgeBrowser {
     By dress_category = By.xpath("//img[@alt=\"Dresses\"]");
     By cart = By.xpath("//a[@id=\"nav-cart\"]");
 
+    public HomePage(WebDriver driver){
+        this.driver = driver ;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+    }
     public void OpenHomePage() throws InterruptedException {
         driver.get("https://www.amazon.com/");
         Thread.sleep(3000);
@@ -40,11 +43,9 @@ public class HomePage extends edgeBrowser {
         Search.sendKeys(input);
         Search.submit();
     }
-    public void NotificationCheck(){
+    public String GetSearchResult(){
         wait.until(ExpectedConditions.presenceOfElementLocated(search_result));
-        String Actual = driver.findElement(search_result).getText();
-        String Expected = "iphone 14 pro max";
-        Assert.assertTrue(Actual.contains(Expected));
+        return driver.findElement(search_result).getText();
     }
     public void OpenCategory(){
         WebElement DressCategory = driver.findElement(dress_category);
