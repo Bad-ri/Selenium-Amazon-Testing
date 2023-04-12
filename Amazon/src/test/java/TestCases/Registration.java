@@ -1,15 +1,14 @@
 package TestCases;
 
-import Base.edgeBrowser;
+import Base.Browser;
 import Functions.ActionClass;
 import Functions.ExcelData;
 import Pages.HomePage;
 import Pages.RegistrationPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-public class Registration extends edgeBrowser{
+public class Registration extends Browser {
     @Test
     public void ValidRegistration() throws IOException, InterruptedException {
         HomePage home = new HomePage(driver);

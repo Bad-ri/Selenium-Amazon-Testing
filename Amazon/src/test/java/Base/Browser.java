@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.*;
 
-public class edgeBrowser {
+public class Browser {
     public WebDriver driver;
     @BeforeClass
     public void openBrowser(){

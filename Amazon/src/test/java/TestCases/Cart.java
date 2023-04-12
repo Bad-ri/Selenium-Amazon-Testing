@@ -1,14 +1,13 @@
 package TestCases;
 
-import Base.edgeBrowser;
+import Base.Browser;
 import Functions.ActionClass;
 import Functions.JavaScriptClass;
 import Pages.CategoryPage;
 import Pages.HomePage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Cart extends edgeBrowser {
+public class Cart extends Browser {
     @Test
     public void ValidAddToCart() throws InterruptedException {
         HomePage home = new HomePage(driver);
