@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -41,14 +42,10 @@ public class RegistrationPage {
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public String GetAuthenticationNotification() throws InterruptedException {
+    public void AuthenticationCheck(String input) throws InterruptedException {
         Thread.sleep(3000);
-        String notification= driver.getTitle();
-        return notification;
-    }
-    public String GetErrorNotification(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(wrong_email_alert));
-        String notification= driver.getTitle();
-        return notification;
+        String Actual= driver.getTitle();
+        String Expected = input;
+        Assert.assertTrue(Actual.contains(Expected));
     }
 }

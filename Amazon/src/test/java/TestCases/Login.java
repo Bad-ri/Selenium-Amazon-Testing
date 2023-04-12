@@ -22,10 +22,6 @@ public class Login extends edgeBrowser {
         data.ReadValidData();
         login.EnterEmail(data.GetInValidEmail());
         login.ClickSubmit();
-        CheckNotification(login.GetNotification());
-    }
-    public void CheckNotification(String input){
-        String Expected = "There was a problem";
-        Assert.assertTrue(input.contains(Expected));
+        login.NotificationCheck();
     }
 }

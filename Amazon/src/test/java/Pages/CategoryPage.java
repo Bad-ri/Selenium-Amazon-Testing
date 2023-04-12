@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -41,9 +42,10 @@ public class CategoryPage {
         ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
     }
-    public String GetCartInformation() {
+    public void CheckCartInformation() {
         wait.until(ExpectedConditions.presenceOfElementLocated(cart_message));
         String Actual = driver.findElement(cart_message).getText();
-        return Actual;
+        String Expected = "Added to Cart";
+        Assert.assertTrue(Actual.contains(Expected));
     }
 }
