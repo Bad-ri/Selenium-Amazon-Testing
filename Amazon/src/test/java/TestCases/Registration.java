@@ -26,7 +26,7 @@ public class Registration extends Browser {
         register.AuthenticationCheck("Authentication required");
     }
     @Test
-    public void InValidRegistration() throws IOException, InterruptedException {
+    public void InValidRegistration() throws IOException{
         HomePage home = new HomePage(driver);
         RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();

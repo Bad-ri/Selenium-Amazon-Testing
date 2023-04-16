@@ -42,8 +42,8 @@ public class RegistrationPage {
         WebElement Submit = driver.findElement(submit);
         Submit.click();
     }
-    public void AuthenticationCheck(String input) throws InterruptedException {
-        Thread.sleep(3000);
+    public void AuthenticationCheck(String input) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         String Actual= driver.getTitle();
         String Expected = input;
         Assert.assertTrue(Actual.contains(Expected));

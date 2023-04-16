@@ -24,11 +24,11 @@ public class HomePage{
         this.driver = driver ;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
-    public void OpenHomePage() throws InterruptedException {
+    public void OpenHomePage(){
         driver.get("https://www.amazon.com/");
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
-    public WebElement OpenMyAccount() throws InterruptedException {
+    public WebElement OpenMyAccount() {
         WebElement myAccount = driver.findElement(my_account);
         wait.until(ExpectedConditions.elementToBeClickable(myAccount));
         return myAccount;

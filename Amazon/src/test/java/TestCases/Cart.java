@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class Cart extends Browser {
     @Test
-    public void ValidAddToCart() throws InterruptedException {
+    public void ValidAddToCart(){
         HomePage home = new HomePage(driver);
         CategoryPage category = new CategoryPage(driver);
         JavaScriptClass js = new JavaScriptClass(driver);

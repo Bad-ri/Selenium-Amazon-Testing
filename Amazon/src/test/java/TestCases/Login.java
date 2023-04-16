@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Login extends Browser {
     @Test
-    public void InValidLogin() throws IOException, InterruptedException {
+    public void InValidLogin() throws IOException{
         HomePage home = new HomePage(driver);
         LoginPage login = new LoginPage(driver);
         ActionClass action = new ActionClass(driver);

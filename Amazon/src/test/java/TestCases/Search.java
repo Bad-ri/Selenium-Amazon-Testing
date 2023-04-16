@@ -7,10 +7,9 @@ import org.testng.annotations.Test;
 
 public class Search extends Browser {
     @Test
-    public void ValidSearch() throws InterruptedException {
+    public void ValidSearch() {
         HomePage home = new HomePage(driver);
         ExcelData data = new ExcelData();
-        //openBrowser("edge");
         home.OpenHomePage();
         home.SearchFor("iphone 14 pro max");
         home.NotificationCheck();
