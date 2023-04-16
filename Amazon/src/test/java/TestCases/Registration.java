@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Registration extends Browser {
     @Test
-    public void ValidRegistration() throws IOException, InterruptedException {
+    public void ValidRegistration() throws IOException{
         HomePage home = new HomePage(driver);
         RegistrationPage register = new RegistrationPage(driver);
         ExcelData data = new ExcelData();

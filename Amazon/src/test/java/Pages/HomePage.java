@@ -1,5 +1,6 @@
 package Pages;
 
+import Base.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,10 +22,12 @@ public class HomePage{
     By cart = By.xpath("//a[@id=\"nav-cart\"]");
 
     public HomePage(WebDriver driver){
+        //this.driver = null ;
         this.driver = driver ;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
     public void OpenHomePage(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get("https://www.amazon.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }

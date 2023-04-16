@@ -9,7 +9,7 @@ public class Search extends Browser {
     @Test
     public void ValidSearch() {
         HomePage home = new HomePage(driver);
-        ExcelData data = new ExcelData();
+        //ExcelData data = new ExcelData();
         home.OpenHomePage();
         home.SearchFor("iphone 14 pro max");
         home.NotificationCheck();
