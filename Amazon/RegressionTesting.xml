@@ -1,5 +1,5 @@
-<suite thread-count="5" verbose="1" name="Amazon Suite">
-    <test name="Regression">
+<suite thread-count="20" verbose="1" name="Amazon Suite">
+    <test name="Regression" thread-count="15" parallel="classes">
         <classes>
             <class name="TestCases.Login">
                 <methods>

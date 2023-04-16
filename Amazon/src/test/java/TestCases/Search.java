@@ -3,6 +3,7 @@ package TestCases;
 import Base.Browser;
 import Functions.ExcelData;
 import Pages.HomePage;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 public class Search extends Browser {
@@ -13,5 +14,6 @@ public class Search extends Browser {
         home.OpenHomePage();
         home.SearchFor("iphone 14 pro max");
         home.NotificationCheck();
+        //Reporter.log("koko is start now");
     }
 }

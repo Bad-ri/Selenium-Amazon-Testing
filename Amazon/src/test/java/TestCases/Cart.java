@@ -7,9 +7,11 @@ import Pages.CategoryPage;
 import Pages.HomePage;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class Cart extends Browser {
     @Test
-    public void ValidAddToCart(){
+    public void ValidAddToCart() throws InterruptedException {
         HomePage home = new HomePage(driver);
         CategoryPage category = new CategoryPage(driver);
         JavaScriptClass js = new JavaScriptClass(driver);
@@ -20,6 +22,7 @@ public class Cart extends Browser {
         js.ScrollByPixels(500);
         category.ChooseSize();
         action.scrollUp();
+        category.ClickAddToCart();
         category.ClickAddToCart();
         category.SwitchTab();
         category.CheckCartInformation();

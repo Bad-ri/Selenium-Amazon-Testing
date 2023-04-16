@@ -31,11 +31,12 @@ public class CategoryPage {
         wait.until(ExpectedConditions.presenceOfElementLocated(select_size));
         SizeSelect.click();
     }
-    public void ClickAddToCart() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+    public void ClickAddToCart() throws InterruptedException {
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         WebElement AddToCart = driver.findElement(add_to_cart);
-        //wait.until(ExpectedConditions.elementToBeClickable(AddToCart));
+        wait.until(ExpectedConditions.elementToBeClickable(AddToCart));
         AddToCart.click();
+        Thread.sleep(3000);
     }
     public void SwitchTab(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
