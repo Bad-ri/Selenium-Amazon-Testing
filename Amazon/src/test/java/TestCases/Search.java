@@ -1,19 +1,23 @@
 package TestCases;
 
 import Base.Browser;
-import Functions.ExcelData;
 import Pages.HomePage;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
-
 public class Search extends Browser {
+
     @Test
     public void ValidSearch() {
         HomePage home = new HomePage(driver);
-        //ExcelData data = new ExcelData();
+        logger.info("************************** Test Execution Started ************************************");
+        logger.info("open browser");
+        logger.info("open website");
         home.OpenHomePage();
+        logger.info("Searching for iphone");
         home.SearchFor("iphone 14 pro max");
+        logger.info("Check for notification");
         home.NotificationCheck();
-        //Reporter.log("koko is start now");
+        logger.info("Close driver");
+
     }
 }
+

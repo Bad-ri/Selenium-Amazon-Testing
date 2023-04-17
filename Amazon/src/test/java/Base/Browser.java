@@ -1,11 +1,16 @@
 package Base;
 
+import TestCases.Search;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.*;
 
 public class Browser {
     public WebDriver driver;
+    protected static Logger logger = LogManager.getLogger();
+
     @BeforeClass
     public void openBrowser(){
         String edgePath = System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\msedgedriver.exe";
