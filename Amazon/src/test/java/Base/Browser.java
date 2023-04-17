@@ -1,10 +1,10 @@
 package Base;
 
-import TestCases.Search;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class Browser {
@@ -19,13 +19,28 @@ public class Browser {
         //driver.get("https://www.amazon.com/");
         driver.manage().window().maximize();
         //driver.manage().deleteAllCookies();
+        logger.info("************************** Test Execution Started **************************");
+        logger.info("Welcome![browser opens]");
     }
-    public WebDriver GetDriver(){
-        return driver;
+    @AfterSuite
+    public void getInfo(ITestContext context) {
+        int total = context.getAllTestMethods().length;
+        int passed = context.getPassedTests().size();
+        int failed = context.getFailedTests().size();
+        int skipped = context.getSkippedTests().size();
+        logger.info("Total number of testcases :" + total);
+        logger.info("Number of testcases Passed : " + passed);
+        logger.info("Number of testcases Failed : " + failed);
+        logger.info("Number of testcases Skipped  : " + skipped);
+        logger.info("Goodbye![browser close]");
+        logger.info("************************** Test Execution Ends **************************");
     }
     @AfterClass
     public void closeBrowser(){
-        driver.quit();
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
     }
 
 }
